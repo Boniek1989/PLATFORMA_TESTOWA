@@ -54,3 +54,59 @@ body {
   display: block;
   border-radius: 5px;
 }
+.image_grid img:hover {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 50px;
+  opacity:0.6;
+
+}
+
+.footer_menu_index
+{
+  width: 100%;
+  max-width:1140px;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+  border-style: dotted;
+  text-align: center;
+  margin: 20px auto;
+  padding: 20px;
+}
+.footer_menu_index:hover
+{
+  opacity:0,6;
+  padding:25px;
+  border-style:none;
+}
+.footer_menu2_index {
+  display: flex;
+  justify-content: center; /* Wycentrowanie wzdłuż osi poziomej */
+  align-items: center; /* Wycentrowanie wzdłuż osi pionowej */
+  max-width:1200px;
+  text-align: center;
+  margin: 20px auto;
+}
+.footer_menu2_index:hover
+{
+  opacity:0,6;
+  padding:25px;
+  border-style:dotted;
+  border-radius: 50px;
+}
+.footer_value_index {
+  width: 100%;
+  border-radius: 5px;
+  border-style: dotted;
+  padding: 20px;
+  margin:0 10px;
+}
+.footer_value_index:hover
+{
+  opacity:0,6;
+  padding:25px;
+  border-style:none;
+  background-color: antiquewhite;
+}
