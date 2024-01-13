@@ -18,7 +18,7 @@ Witamy w Quizie o Grecji !
 
 
 <div class="footer_menu2_index">
-    <span class="footer_value_index" onclick="openNav();" >Zaloguj jako administrator</span>
+    <span class="footer_value_index" onclick="openAdmin();" >Zaloguj jako administrator</span>
     <span class="footer_value_index">Rozpocznij jako uczestnik</span>
     <span class="footer_value_index">Lista wyników</span>
 </div>

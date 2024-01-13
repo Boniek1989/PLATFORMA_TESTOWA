@@ -7,11 +7,13 @@
     left: 0;
     overflow-x: hidden;
     transition: 1;
-    padding-top: 60px;
     text-align: center;
     border-style: none;
-    background-color: blueviolet;
+    background-color: antiquewhite;
     transition: 1s;
+    display: flex;
+    justify-content: center; /* Wycentrowanie wzdłuż osi poziomej */
+    align-items: center; /* Wycentrowanie wzdłuż osi pionowej */
     
   }
   .menu_headers {
@@ -109,4 +111,25 @@ body {
   padding:25px;
   border-style:none;
   background-color: antiquewhite;
+}
+.admin_logon
+{
+  display: flex;
+  justify-content: center; /* Wycentrowanie wzdłuż osi poziomej */
+  align-items: center; /* Wycentrowanie wzdłuż osi pionowej */
+  max-width:1200px;
+  text-align: center;
+  margin: 20px auto;
+}
+.button_fixed
+{
+  border-radius: 5px;
+  border-style: dotted;
+  padding:25px;
+}
+.button_fixed:hover
+{
+  border-style: none; 
+  padding:30px;
+  background-color:white;
 }

@@ -6,43 +6,41 @@
   <body>
    
 <nav class="sidenav" id="Navibar">
-  <form method= "post" action="/admin_auth_control">
+  <div class="admin_logon">
+   <span class="button_fixed" onclick="openAdminfullscreen();">Rozwiń</span>
+  <form method= "post" action="/admin_auth_control" class="footer_value_index">
   @csrf
-  <label for="fname">Użytkownik:</label><br><br>
-  <input type="text" id="AdminPassword" name="AdminUser"><br><br>
-  <label for="lname">Hasło:</label><br><br>
-  <input type="password" id="AdminPassword" name="AdminPassword"><br><br>
+  <label for="fname">Użytkownik:</label>
+  <input type="text" id="AdminPassword" name="AdminUser">
+  <label for="lname">Hasło:</label>
+  <input type="password" id="AdminPassword" name="AdminPassword">
   <input type="submit" value="Zatwierdź">
   </form>
-
-  
-  <form method= "post">
-  @csrf
-  <label for="fname">Nazwa uczestnika:</label><br><br>
-  <input type="text" id="AdminPassword" name="AdminUser"><br><br>
-  <input type="submit" value="Rozpocznij Test"> <input type="submit" value="Regulamin Testu"><input type="submit" value="Lista Wyników">
-  </form><br><br>
-  <input type="submit" value="Wyjdź" onclick="closeNav()"><br><br>
-  </div>
+<span class="button_fixed" onclick="closeAdmin();"> Zwiń </span>
+</div>
+</nav>
   <script>
-  function openNav() 
+  function openAdmin() 
   {
-  document.getElementById("Navibar").style.width = "35%";
+  document.getElementById("Navibar").style.width = "100%";
+  document.getElementById("Navibar").style.height = "auto";
+}
+function openAdminfullscreen() 
+  {
+  document.getElementById("Navibar").style.width = "100%";
   document.getElementById("Navibar").style.height = "100%";
 }
-  function closeNav()
+  function closeAdmin()
   {
-  document.getElementById("Navibar").style.width = "0";
-  document.getElementById("Navibar").style.height = "100%";
+  document.getElementById("Navibar").style.width = "100%";
+  document.getElementById("Navibar").style.height = "0%";
 }
+
 
 
 </script>
 
-</nav>
-<nav>
 
-</nav>
 
 
     {{ $slot }}
