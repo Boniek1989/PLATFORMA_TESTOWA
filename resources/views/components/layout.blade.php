@@ -5,9 +5,9 @@
   </head>
   <body>
    
-<nav class="sidenav" id="Navibar">
+<nav class="topnav" id="Adminbar">
   <div class="admin_logon">
-   <span class="button_fixed" onclick="openAdminfullscreen();">Rozwiń</span>
+  <span class="button_fixed" onclick="openAdminfullscreen();">Rozwiń</span>
   <form method= "post" action="/admin_auth_control" class="footer_value_index">
   @csrf
   <label for="fname">Użytkownik:</label>
@@ -19,21 +19,48 @@
 <span class="button_fixed" onclick="closeAdmin();"> Zwiń </span>
 </div>
 </nav>
+<nav class="downnav" id="Studbar">
+  <div class="admin_logon">
+  <span class="button_fixed" onclick="openStudfullscreen();">Rozwiń</span>
+  <form method= "post" action="/test" class="footer_value_index">
+  @csrf
+  <label for="name">Nazwa studenta:</label>
+  <input type="text" id="name" name="name">
+  <input type="submit" value="Zatwierdź">
+  </form>
+<span class="button_fixed" onclick="closeStud();"> Zwiń </span>
+</div>
+</nav>
   <script>
   function openAdmin() 
   {
-  document.getElementById("Navibar").style.width = "100%";
-  document.getElementById("Navibar").style.height = "auto";
+  document.getElementById("Adminbar").style.width = "100%";
+  document.getElementById("Adminbar").style.height = "auto";
 }
 function openAdminfullscreen() 
   {
-  document.getElementById("Navibar").style.width = "100%";
-  document.getElementById("Navibar").style.height = "100%";
+  document.getElementById("Adminbar").style.width = "100%";
+  document.getElementById("Adminbar").style.height = "100%";
 }
   function closeAdmin()
   {
-  document.getElementById("Navibar").style.width = "100%";
-  document.getElementById("Navibar").style.height = "0%";
+  document.getElementById("Adminbar").style.width = "100%";
+  document.getElementById("Adminbar").style.height = "0%";
+}
+function openStud() 
+  {
+  document.getElementById("Studbar").style.width = "100%";
+  document.getElementById("Studbar").style.height = "auto";
+}
+function openStudfullscreen() 
+  {
+  document.getElementById("Studbar").style.width = "100%";
+  document.getElementById("Studbar").style.height = "100%";
+}
+  function closeStud() 
+  {
+  document.getElementById("Studbar").style.width = "100%";
+  document.getElementById("Studbar").style.height = "0%";
 }
 
 

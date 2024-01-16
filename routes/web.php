@@ -3,16 +3,21 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminQuestController;
-
+use App\Http\Controllers\StudentController;
 
 Route::get('/', function () {return view('index');
 });
-
-Route::get('/admin_auth', [AdminController::class,'Admin']);
+Route::get("/show_all",[AdminController::class,'ShowAll']);
 Route::post('/admin_auth_control', [AdminController::class,'AdminControl']);
-
-Route::get('/add_quest', function(){return view('QuestAdd');
-});
-
 Route::post('/question_add', [AdminController::class,'AddQuizQuest']);
-Route::post('/question_edit', [AdminController::class,'AddQuizQuest']);
+Route::get('/edit/{id}', [AdminController::class, 'edit']);
+Route::put('/update_question/{id}', [AdminController::class, 'update']);
+Route::get('/exit_edit', function(){return view('Admin');});
+Route::DELETE('/delete/{id}',[AdminController::class, 'destroy']);
+
+
+
+
+
+Route::post('/test', [StudentController::class,'Create']);
+Route::get("/test_run",[AdminController::class,'TestRun']);
