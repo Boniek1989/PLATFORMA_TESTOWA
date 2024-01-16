@@ -9,19 +9,17 @@ class AdminController extends Controller
 {
     public function AdminControl(Request $request)
     {
-        $adminUsername = 'admin'; // Ustawienia admina
-        $adminPassword = 'admin123'; // Ustawienia hasła admina
+        $adminUsername = 'admin'; 
+        $adminPassword = 'admin123'; 
 
         $inputUsername = $request->input('AdminUser');
         $inputPassword = $request->input('AdminPassword');
 
         if ($inputUsername === $adminUsername && $inputPassword === $adminPassword) {
-            // Hasło administratora poprawne, możesz tu umieścić kod do wykonania po poprawnej autentykacji
+           
             return view("Admin");   
         } else {
-            // Hasło administratora niepoprawne
             return 'Błąd logowania.';
-
         }
     }
 

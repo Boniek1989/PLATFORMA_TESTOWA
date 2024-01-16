@@ -19,5 +19,6 @@ Route::DELETE('/delete/{id}',[AdminController::class, 'destroy']);
 
 
 
-Route::post('/test', [StudentController::class,'Create']);
+Route::post('/create_score', [StudentController::class,'Create']);
 Route::get("/test_run",[AdminController::class,'TestRun']);
+Route::get('/score_list', [StudentController::class,'ShowAll']);

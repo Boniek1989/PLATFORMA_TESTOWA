@@ -1,9 +1,9 @@
 <x-layout>
     <body>
 
-        <form id="QuizForm" action="przykladowy_skrypt.php" method="post">
+        <form id="QuizForm" action="sample_script.php" method="post">
             @php
-                $calyWynik = 0;
+                $totalScore = 0;
             @endphp
         
             @foreach($records as $record)
@@ -11,48 +11,62 @@
                     {{ $record->question }}
         
                     @php
-                        $poprawnaOdpowiedz = $record->TrueAnswer;
-                        $falszyweOdpowiedzi = [
+                        $correctAnswer = $record->TrueAnswer;
+                        $incorrectAnswers = [
                             $record->FalseAnswer1,
                             $record->FalseAnswer2,
                             $record->FalseAnswer3,
-                        ];
-        
-                        // Mieszanie odpowiedzi
-                        $shuffledAnswers = collect([$poprawnaOdpowiedz, ...$falszyweOdpowiedzi])->shuffle()->all();
+                        ];        
+                        
+                        $shuffledAnswers = collect([$correctAnswer, ...$incorrectAnswers])->shuffle()->all();
                     @endphp
         
-                    <input type="hidden" name="poprawnaOdpowiedz_{{ $loop->index }}" value="{{ $poprawnaOdpowiedz }}">
+                    <input type="hidden" name="correctAnswer_{{ $loop->index }}" value="{{ $correctAnswer }}">
                     
                     @foreach($shuffledAnswers as $key => $answer)
                         <label>
-                            <input type="checkbox" name="options_{{ $loop->parent->index }}[]" value="{{ $answer }}">
+                            <input type="checkbox" name="selectedAnswers_{{ $loop->parent->index }}[]" value="{{ $answer }}">
                             {{ $answer }}
                         </label>
                     @endforeach
                 </div>
             @endforeach
+        </form>
         
-            <button type="button" onclick="sprawdzWynik()" class="question_grid2">Zakończ test</button>
+        <form id="scoreForm" action="/create_score" method="post" class="question_grid2">
+            @csrf
+        
+            <label for="name">Nazwa uczestnika:</label>
+            <input type="text" id="name" name="name" required>
+        
+            
+            <input type="hidden" id="user_score" name="user_score">
+        
+            <button type="button", onclick="calculateScore()">Sprawdź wynik</button>
+            <button type="submit">Zakończ test</button>
         </form>
         
         <script>
-            function sprawdzWynik() {
+            function calculateScore() { 
                 var form = document.getElementById("QuizForm");
-                var wynik = 0;
+                var totalScore = 0;
         
-                form.querySelectorAll("input[name^='poprawnaOdpowiedz']").forEach(function(poprawnaOdpowiedzField, index) {
-                    var zaznaczoneOdpowiedzi = Array.from(form.querySelectorAll("input[name^='options_" + index + "']:checked"))
+                form.querySelectorAll("input[name^='correctAnswer']").forEach(function(correctAnswerField, index) {
+                    var selectedAnswers = Array.from(form.querySelectorAll("input[name='selectedAnswers_" + index + "[]']:checked"))
                         .map(function(checkbox) {
                             return checkbox.value;
                         });
         
-                    if (zaznaczoneOdpowiedzi.length === 1 && zaznaczoneOdpowiedzi[0] === poprawnaOdpowiedzField.value) {
-                        wynik++;
+                    if (selectedAnswers.length === 1 && selectedAnswers[0] === correctAnswerField.value) {
+                        totalScore++;
                     }
                 });
         
-                alert("Twój wynik to: " + wynik + " punktów");
+                var userScore = totalScore; 
+        
+               
+                document.getElementById("user_score").value = userScore;
+                       
             }
         </script>
         

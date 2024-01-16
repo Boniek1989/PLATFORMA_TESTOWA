@@ -16,11 +16,17 @@ class StudentController extends Controller
         ]);
     $model = new Student();
     $model->name = $request->input('name');
-    $model->points = 0;
+    $model->points =$request-> input('user_score');
     $model->created_at = now();
     $model->updated_at = now();
     $model->save();
-    return view("test")->with('message','Operacja zakończona sukcesem');
+    return view("/index");
+    }
+
+    public function ShowAll()
+    {
+        $records = Student::all();
+        return view('ScoreList')->with('records', $records);
     }
     }
 

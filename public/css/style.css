@@ -12,8 +12,8 @@
     background-color: antiquewhite;
     transition: 1s;
     display: flex;
-    justify-content: center; /* Wycentrowanie wzdłuż osi poziomej */
-    align-items: center; /* Wycentrowanie wzdłuż osi pionowej */
+    justify-content: center; 
+    align-items: center; /
   }
   .downnav {
     height: 100%;
@@ -29,8 +29,8 @@
     background-color: antiquewhite;
     transition: 1s;
     display: flex;
-    justify-content: center; /* Wycentrowanie wzdłuż osi poziomej */
-    align-items: center; /* Wycentrowanie wzdłuż osi pionowej */
+    justify-content: center; 
+    align-items: center; 
 }
 body {
   margin: 0;
@@ -75,8 +75,8 @@ body {
 }
 .footer_menu2_index {
   display: flex;
-  justify-content: center; /* Wycentrowanie wzdłuż osi poziomej */
-  align-items: center; /* Wycentrowanie wzdłuż osi pionowej */
+  justify-content: center;
+  align-items: center; 
   max-width:1200px;
   text-align: center;
   margin: 20px auto;
@@ -90,11 +90,13 @@ body {
 }
 .footer_menu3_index {
   display: flex;
-  justify-content: center; /* Wycentrowanie wzdłuż osi poziomej */
-  align-items: center; /* Wycentrowanie wzdłuż osi pionowej */
+  justify-content: center; 
+  align-items: center; 
   max-width:1200px;
   text-align: center;
   margin: 20px auto;
+  text-decoration: none;
+  color:black;
 }
 .footer_menu3_index:hover
 {
@@ -102,6 +104,23 @@ body {
   padding:25px;
   border-style:dotted;
   border-radius: 50px;
+  background-color:antiquewhite;
+}
+.footer_menu4_index
+{
+  opacity:0,6;
+  padding:25px;
+  border-style:dotted;
+  border-radius: 50px;
+  background-color:antiquewhite;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  max-width:1200px;
+  text-align: center;
+  margin: 20px auto;
+  text-decoration: none;
+  color:black;
 }
 .footer_value_index {
   width: 100%;
@@ -111,6 +130,10 @@ body {
   margin:0 10px;
   text-decoration: none;
   color:black;
+  align-items:center;
+  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  grid-gap: 10px;
 }
 .footer_value_index:hover
 {
@@ -122,8 +145,8 @@ body {
 .admin_logon
 {
   display: flex;
-  justify-content: center; /* Wycentrowanie wzdłuż osi poziomej */
-  align-items: center; /* Wycentrowanie wzdłuż osi pionowej */
+  justify-content: center; 
+  align-items: center; 
   max-width:1200px;
   text-align: center;
   margin: 20px auto;
@@ -166,8 +189,8 @@ body {
 }
 .green_light {
   display: flex;
-  justify-content: center; /* Wycentrowanie wzdłuż osi poziomej */
-  align-items: center; /* Wycentrowanie wzdłuż osi pionowej */
+  justify-content: center; 
+  align-items: center; 
   max-width:1200px;
   text-align: center;
   margin: 20px auto;
@@ -293,4 +316,13 @@ body {
   label {
     display: block;
     margin-bottom: 10px;
+  }
+  .score_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border-style: groove;
   }

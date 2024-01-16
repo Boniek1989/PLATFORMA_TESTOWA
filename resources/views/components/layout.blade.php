@@ -22,13 +22,8 @@
 <nav class="downnav" id="Studbar">
   <div class="admin_logon">
   <span class="button_fixed" onclick="openStudfullscreen();">Rozwiń</span>
-  <form method= "post" action="/test" class="footer_value_index">
-  @csrf
-  <label for="name">Nazwa studenta:</label>
-  <input type="text" id="name" name="name">
-  <input type="submit" value="Zatwierdź">
-  </form>
-<span class="button_fixed" onclick="closeStud();"> Zwiń </span>
+  <a href="{{url('test_run')}}" class="button_fixed">Rozpocznij test</a> 
+  <span class="button_fixed" onclick="closeStud();"> Zwiń </span>
 </div>
 </nav>
   <script>
