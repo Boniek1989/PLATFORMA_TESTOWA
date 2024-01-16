@@ -1,7 +1,7 @@
 <x-layout>
     <body>
 
-        <form id="QuizForm" action="sample_script.php" method="post">
+        <form id="QuizForm"  method="post">
             @php
                 $totalScore = 0;
             @endphp
